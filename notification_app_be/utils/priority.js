@@ -8,8 +8,8 @@ const priorityMap = {
 
 function sortNotifications(notifications) {
     return [...notifications].sort((a, b) => {
-        const typeA = priorityMap[a.Type] || 0;
-        const typeB = priorityMap[b.Type] || 0;
+        const typeA = priorityMap[a.Type];
+        const typeB = priorityMap[b.Type];
 
         if (typeA !== typeB) {
             return typeB - typeA;
