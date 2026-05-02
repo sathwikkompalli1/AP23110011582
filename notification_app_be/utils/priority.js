@@ -7,17 +7,14 @@ const priorityMap = {
 
 
 function sortNotifications(notifications) {
-    return notifications.sort((a, b) => {
-
-       
-        const typeA = priorityMap[a.Type];
-        const typeB = priorityMap[b.Type];
+    return [...notifications].sort((a, b) => {
+        const typeA = priorityMap[a.Type] || 0;
+        const typeB = priorityMap[b.Type] || 0;
 
         if (typeA !== typeB) {
             return typeB - typeA;
         }
 
-        
         const timeA = new Date(a.Timestamp);
         const timeB = new Date(b.Timestamp);
 
